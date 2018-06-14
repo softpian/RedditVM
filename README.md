@@ -6,11 +6,11 @@ Introduction
 ### Android Architecture Components and Dagger 2
 This repository contains a Reddit application implementing Android Architecture Comoponents.
 
-The application illustrates how to implement [Dependency Injection design pattern][10] with [Dagger2][23] as well as [Android Architecture Components][20] with [ViewModel][21] and [LiveData][22].
+The application illustrates how to implement [Dependency Injection design pattern][10] with [Dagger 2][23] as well as [Android Architecture Components][20] with [ViewModel][21] and [LiveData][22].
 
 [10]: https://en.wikipedia.org/wiki/Dependency_injection
 
-Please refer to [Android Architecture Components][20] and [Dagger2][23] for more detailed information.
+Please refer to [Android Architecture Components][20] and [Dagger 2][23] for more detailed information.
 
 ### Reddit RESTful API
 This application uses RESTful API of [Reddit][0] which is a social news aggregation web site in order to get top 20 news posts.
@@ -28,7 +28,7 @@ Please visit [https://www.reddit.com/dev/api/](https://www.reddit.com/dev/api/) 
 ### Android development skills
 This repository is able to help understand how to use the following skills.
 * How to implement more robust application using ViewModel and LiveData of Android Architecture Components
-* How to apply Dependency Injection design pattern to Android application with dagger framework
+* How to apply Dependency Injection design pattern to Android application with Dagger 2 framework
 * How to call RESTful API with Retrofit
 * How to use OkHttp Logging Intercepter in order to debug HTTP request/response data  
 * How to convert JSON to Java Objects with Moshi
@@ -39,7 +39,7 @@ Libraries Used
 ---------------
 * [ViewModel][21] - Stores and manages UI-related data in a lifecycle conscious way
 * [LiveData][22] - Observable data holder class which is lifecycle-aware of other app components such as activities, fragments, or services
-* [Dagger2][23] - Framework to implement Dependency injection pattern for Android and Java
+* [Dagger 2][23] - Framework to implement Dependency injection pattern for Android and Java
 * [Retrofit][1] - Type-safe HTTP client for Android and Java which makes it easier to consume RESTful API services.
 * [OkHttp Logging Intercepter][2] - Logs HTTP request and response data with different logging levels in order to debug HTTP error 
 * [Moshi][3] - JSON library for Android and Java which makes it easy to parse JSON into Java objects. Used with Retrofit Moshi converter
@@ -59,7 +59,7 @@ Reference
 * [Android Architecture Components][20]
 * [Android ViewModel][21]
 * [Android LiveData][22]
-* [Dagger2][23]
+* [Dagger 2][23]
 
 [20]: https://developer.android.com/topic/libraries/architecture/
 [21]: https://developer.android.com/topic/libraries/architecture/viewmodel
