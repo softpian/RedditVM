@@ -3,7 +3,7 @@ Reddit application implementing ViewModel based on Android Architecture Componen
 
 Introduction
 ------------
-#### Android Architecture Components and Dagger 2
+### Android Architecture Components and Dagger 2
 This repository contains a Reddit application implementing Android Architecture Comoponents.
 
 The application illustrates how to implement [Dependency Injection design pattern][10] with [Dagger2][23] as well as [Android Architecture Components][20] with [ViewModel][21] and [LiveData][22].
@@ -12,11 +12,11 @@ The application illustrates how to implement [Dependency Injection design patter
 
 Please refer to [Android Architecture Components][20] and [Dagger2][23] for more detailed information.
 
-#### Reddit RESTful API
+### Reddit RESTful API
 This application uses RESTful API of [Reddit][0] which is a social news aggregation web site in order to get top 20 news posts.
 
 It receives news data formatted in JSON and converts it to Java Objects including news title, photo url, author's name, date, comment's count and so on.
-##### API Used
+#### API Used
 
 ```
 https://www.reddit.com/top.json?after=""&limit=20
@@ -25,7 +25,7 @@ Please visit [https://www.reddit.com/dev/api/](https://www.reddit.com/dev/api/) 
 
 [0]: https://www.reddit.com/dev/api/
 
-#### Android development skills
+### Android development skills
 This repository is able to help understand how to use the following skills.
 * How to implement more robust application using ViewModel and LiveData of Android Architecture Components
 * How to apply Dependency Injection design pattern to Android application with dagger framework
