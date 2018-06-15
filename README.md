@@ -21,7 +21,6 @@ It receives news data formatted in JSON and converts it to Java Objects includin
 ```
 https://www.reddit.com/top.json?after=""&limit=20
 ```
-Please visit [https://www.reddit.com/dev/api/](https://www.reddit.com/dev/api/) for more detailed information.
 
 [0]: https://www.reddit.com/
 
