@@ -23,7 +23,7 @@ https://www.reddit.com/top.json?after=""&limit=20
 ```
 Please visit [https://www.reddit.com/dev/api/](https://www.reddit.com/dev/api/) for more detailed information.
 
-[0]: https://www.reddit.com/dev/api/
+[0]: https://www.reddit.com/
 
 ### Android development skills
 This repository is able to help understand how to use the following skills.
