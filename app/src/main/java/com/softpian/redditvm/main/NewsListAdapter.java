@@ -33,8 +33,10 @@ public class NewsListAdapter extends RecyclerView.Adapter<NewsListAdapter.NewsVi
                 return;
             }
 
+            int curSize = getItemCount();
             mItems.addAll(childrenItems);
-            notifyDataSetChanged();
+            notifyItemRangeInserted(curSize, childrenItems.size());
+
         });
     }
 

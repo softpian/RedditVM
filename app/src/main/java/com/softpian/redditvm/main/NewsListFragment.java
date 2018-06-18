@@ -35,6 +35,8 @@ public class NewsListFragment extends Fragment {
 
     private NewsListViewModel mViewModel;
     private Unbinder mUnbinder;
+    private LinearLayoutManager mLinearLayoutManager;
+    private RecyclerView.OnScrollListener mOnScrollListener;
 
     @Override
     public void onAttach(Context context) {
@@ -58,9 +60,21 @@ public class NewsListFragment extends Fragment {
         mViewModel = ViewModelProviders.of(this, mViewModelFactory).get(NewsListViewModel.class);
 
         mNewsListView.setAdapter(new NewsListAdapter(mViewModel, this));
-        mNewsListView.setLayoutManager(new LinearLayoutManager(getContext()));
+
+        mLinearLayoutManager = new LinearLayoutManager(getContext());
+        mNewsListView.setLayoutManager(mLinearLayoutManager);
+
+        mNewsListView.clearOnScrollListeners();
+        mOnScrollListener = new InfiniteScrollListener(mLinearLayoutManager) {
+            @Override
+            public void onLoadMore() {
+                mViewModel.getRedditNews();
+            }
+        };
+        mNewsListView.addOnScrollListener(mOnScrollListener);
 
         observeViewModel();
+
     }
 
     private void observeViewModel() {
@@ -85,8 +99,10 @@ public class NewsListFragment extends Fragment {
         mViewModel.getLoading().observe(this, isLoading -> {
             mLoadingView.setVisibility(isLoading ? View.VISIBLE : View.GONE);
             if (isLoading) {
-                mNewsListView.setVisibility(View.GONE);
+                //mNewsListView.setVisibility(View.GONE);
                 mErrorView.setVisibility(View.GONE);
+            } else {
+               // mLinearLayoutManager.scrollToPosition(30);
             }
         });
     }
@@ -94,6 +110,10 @@ public class NewsListFragment extends Fragment {
     @Override
     public void onDestroy() {
         super.onDestroy();
+
+        if (mNewsListView != null) {
+            mNewsListView.clearOnScrollListeners();
+        }
 
         if (mUnbinder != null) {
             mUnbinder.unbind();

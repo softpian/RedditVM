@@ -24,6 +24,8 @@ public class NewsListViewModel extends ViewModel {
     private Call<RedditNewsResponse> mRedditNewsCall;
     private RedditApi mRedditApi;
 
+    private RedditNewsResponse mPreviousRedditNewsResponse;
+
     @Inject
     public NewsListViewModel(RedditApi redditApi) {
 
@@ -43,17 +45,26 @@ public class NewsListViewModel extends ViewModel {
         return mLoading;
     }
 
-    private void getRedditNews() {
+    public void getRedditNews() {
 
         mLoading.setValue(true);
 
-        mRedditNewsCall = mRedditApi.getTopPosts("", "20");
+        if (mPreviousRedditNewsResponse != null
+                && mPreviousRedditNewsResponse.getData() != null
+                && mPreviousRedditNewsResponse.getData().getAfter() != null) {
+
+            mRedditNewsCall = mRedditApi.getTopPosts(mPreviousRedditNewsResponse.getData().getAfter(), "20");
+        } else {
+
+            mRedditNewsCall = mRedditApi.getTopPosts("", "20");
+        }
         mRedditNewsCall.enqueue(new Callback<RedditNewsResponse>() {
             @Override
             public void onResponse(Call<RedditNewsResponse> call, Response<RedditNewsResponse> response) {
 
                 if (response.isSuccessful()) {
                     RedditNewsResponse redditNewsResponse = response.body();
+                    mPreviousRedditNewsResponse = redditNewsResponse;
                     List<ChildrenItem> childrenItemList = redditNewsResponse.getData().getChildren();
                     mNewsItems.setValue(childrenItemList);
                     mNewsLoadError.setValue(false);
